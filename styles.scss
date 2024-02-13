@@ -7,9 +7,16 @@ white - #ffffff;
 black - #000000;
 */
 
+$light-yellow: #f7e4bf;
+$light-blue: #78a7c6;
+$dark-blue: #134d71;
+$white: #ffffff;
+$black: #000000;
+$font: 'Quicksand', sans-serif;
+
 html {
-  font-family: 'Quicksand', sans-serif;
+  font-family: $font;
 
   min-height: 100%;
-  background: linear-gradient(180deg, #134d71 0%, #78a7c6 50%,  #f7e4bf 100%);
+  background: linear-gradient(180deg, $dark-blue 0%, $light-blue 50%,  $light-yellow 100%);
 }
