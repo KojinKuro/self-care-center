@@ -1,4 +1,4 @@
-const affirmations = [
+const affirmationData = [
   'I forgive myself and set myself free.',
   'I believe I can be all that I want to be.',
   'I am in the process of becoming the best version of myself.',
@@ -14,7 +14,7 @@ const affirmations = [
   'I manifest perfect health by making smart choices.'
 ]
 
-const mantras = [
+const mantraData = [
   'Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.',
   'Don’t let yesterday take up too much of today.',
   'Every day is a second chance.',
