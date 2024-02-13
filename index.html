@@ -8,20 +8,25 @@
   
     <header>✨Self Care Center✨</header>
     
-    <section>
-      <div>What type of message?</div>
-      <form id="message-form" class="box">
-        <div>
-          <input type="checkbox" name="" id="">
-          <label for="">affirmation</label>
-          <input type="checkbox" name="" id="">
-          <label for="">mantra</label>
-        </div>
-        <button type="submit">Receive Message</button>
-      </form>
-    </section>
-
-    <section id="message-random" class="box">🔔</section>
+    <main>
+      <section>
+        <div class="message-question">What type of message?</div>
+        <form id="message-form" class="box">
+          <div class="inputs">
+            <div class="radio">
+              <input type="radio" name="message-type" id="affirmation">
+              <label for="affirmation">affirmation</label>
+            </div>
+            <div class="radio">
+              <input type="radio" name="message-type" id="mantra">
+              <label for="mantra">mantra</label>
+            </div>
+          </div>
+          <button type="submit">Receive Message</button>
+        </form>
+      </section>
+      <section id="message-random" class="box">🔔</section>
+    </main>
 
     <script type="text/javascript" src="main.js"></script>
   </body>
