@@ -5,10 +5,13 @@ let messageForm = document.querySelector('#message-form');
 let affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
 let mantraRadio = document.querySelector('input#mantra[type="radio"]');
 
+let chime = new Audio('./sounds/bell.wav');
+
 messageForm.addEventListener('change', changeBackground);
 messageInput.addEventListener('click', function(event) {
   event.preventDefault();
-  var message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
+  chime.cloneNode().play();
+  let message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
   setMessage(message);
 });
 
