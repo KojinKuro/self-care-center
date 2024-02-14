@@ -32,11 +32,27 @@ html, body {
 }
 
 html {
+  --fade-style: NULL;
+  position: relative;
   background: linear-gradient(180deg, #134d71 10%, #78a7c6 50%, #f7e4bf 100%);
+  z-index: 1;
 }
 
-.background-alt {
+html::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: linear-gradient(180deg, $bg2-clr1 10%, $bg2-clr2 50%, $bg2-clr3 100%);
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+
+html::before {
+  animation: var(--fade-style) 1s forwards;
 }
 
 body {
@@ -140,7 +156,7 @@ main {
 }
 
 .fade-in {
-  animation: fade-in 0.75s;
+  animation: fade-in 0.75s forwards;
 }
 
 @keyframes fade-in {
@@ -150,6 +166,16 @@ main {
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 

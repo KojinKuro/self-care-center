@@ -13,8 +13,8 @@ messageInput.addEventListener('click', function(event) {
 });
 
 function changeBackground() {
-  if (affirmationRadio.checked) { html.classList.remove('background-alt'); }
-  else { html.classList.add('background-alt') };
+  if (affirmationRadio.checked) html.style.setProperty('--fade-style', 'fade-out');
+  else html.style.setProperty('--fade-style', 'fade-in');
 }
 
 function setMessage(text) {
