@@ -146,13 +146,15 @@ main {
 #message-random {
   width: 750px;
   height: 200px;
-
-  font-size: 5rem;
   
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  img {
+    width: 100px;
+  }
 }
 
 .fade-in {
