@@ -18,7 +18,7 @@ function changeBackground() {
 }
 
 function setMessage(text) {
-  messageBox.innerHTML = `<span class='fade-up'>${text}</span>`
+  messageBox.innerHTML = `<span class='fade-in'>${text}</span>`
   messageBox.style.fontSize = '1.75rem';
 }
 

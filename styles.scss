@@ -139,11 +139,11 @@ main {
   text-align: center;
 }
 
-.fade-up {
-  animation: fade-up 0.75s;
+.fade-in {
+  animation: fade-in 0.75s;
 }
 
-@keyframes fade-up {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
