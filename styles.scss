@@ -10,6 +10,11 @@ black - #000000;
 $light-yellow: #f7e4bf;
 $light-blue: #78a7c6;
 $dark-blue: #134d71;
+
+$bg2-clr1: #632b6c;
+$bg2-clr2: #c76b98;
+$bg2-clr3: #f09f9c;
+
 $white: #ffffff;
 $black: #000000;
 $font: 'Quicksand', sans-serif;
@@ -27,7 +32,27 @@ html, body {
 }
 
 html {
+  --fade-style: NULL;
+  position: relative;
   background: linear-gradient(180deg, #134d71 10%, #78a7c6 50%, #f7e4bf 100%);
+  z-index: 1;
+}
+
+html::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, $bg2-clr1 10%, $bg2-clr2 50%, $bg2-clr3 100%);
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+
+html::before {
+  animation: var(--fade-style) 1s forwards;
 }
 
 body {
@@ -39,6 +64,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   margin-top: 25px;
   height: calc($font-header-size * 2);
@@ -96,6 +122,8 @@ main {
   }
 
   button {
+    $button-width: 200px;
+    $button-height: 30px;
     width: 200px;
     height: 30px;
 
@@ -104,17 +132,61 @@ main {
     background-color: $dark-blue;
     color: $white;
     font-size: 1rem;
+
+    &:hover {
+      $size-multiplier: 1.05;
+      background-color: $light-blue;
+      width: calc($button-width * $size-multiplier);
+      height: calc($button-height * $size-multiplier);
+      font-size: calc(1rem * $size-multiplier);
+    }
   }
 }
 
 #message-random {
   width: 750px;
   height: 200px;
-
-  font-size: 5rem;
   
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  img {
+    width: 100px;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.75s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  #message-random {
+    width: 100%;
+  }
+
+  #message-form {
+    width: 100vw;
+  }
 }

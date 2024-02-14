@@ -1,15 +1,47 @@
-let messageBox = document.querySelector('#message-random');
-let messageInput = document.querySelector('button[type="submit"]');
-let affirmationRadio = document.querySelector('input[type="radio"]');
+const html = document.querySelector('html');
+const messageBox = document.querySelector('#message-random');
+const messageInput = document.querySelector('button[type="submit"]');
+const affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
+const mantraRadio = document.querySelector('input#mantra[type="radio"]');
+
+const chime = new Audio('./sounds/bell.wav');
+
+let previousMessage = affirmationRadio;
+let previousTimer;
 
 messageInput.addEventListener('click', function(event) {
   event.preventDefault();
-  var message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
-  setMessage(message);
+  clearTimeout(previousTimer);
+  chime.cloneNode().play();
+
+  changeBackground();
+  loading();
+  previousTimer = setTimeout(() => {
+    const message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
+    setMessage(message);
+  }, 500 + getRandomIndex(1500));
 });
 
+function loading() {
+  messageBox.innerHTML = '<img src="./assets/loading.gif">';
+}
+
+function changeBackground() {
+  if(previousMessage === affirmationRadio && affirmationRadio.checked) return;
+  if(previousMessage === mantraRadio && !affirmationRadio.checked) return;
+
+  if (affirmationRadio.checked) { 
+    html.style.setProperty('--fade-style', 'fade-out'); 
+    previousMessage = affirmationRadio;
+  }
+  else { 
+    html.style.setProperty('--fade-style', 'fade-in');
+    previousMessage = mantraRadio;
+  }
+}
+
 function setMessage(text) {
-  messageBox.innerText = text;
+  messageBox.innerHTML = `<span class='fade-in'>${text}</span>`
   messageBox.style.fontSize = '1.75rem';
 }
 
