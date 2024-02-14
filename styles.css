@@ -21,6 +21,10 @@ html {
   background: linear-gradient(180deg, #134d71 10%, #78a7c6 50%, #f7e4bf 100%);
 }
 
+.background-alt {
+  background: linear-gradient(180deg, #632b6c 10%, #c76b98 50%, #f09f9c 100%);
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -30,6 +34,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-top: 25px;
   height: 6rem;
   font-size: 3rem;
@@ -103,6 +108,18 @@ main {
   text-align: center;
 }
 
+.fade-up {
+  animation: fade-up 0.75s;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media (max-width: 750px) {
   #message-random {
     width: 100%;

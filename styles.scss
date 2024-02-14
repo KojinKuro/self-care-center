@@ -10,6 +10,11 @@ black - #000000;
 $light-yellow: #f7e4bf;
 $light-blue: #78a7c6;
 $dark-blue: #134d71;
+
+$bg2-clr1: #632b6c;
+$bg2-clr2: #c76b98;
+$bg2-clr3: #f09f9c;
+
 $white: #ffffff;
 $black: #000000;
 $font: 'Quicksand', sans-serif;
@@ -30,6 +35,10 @@ html {
   background: linear-gradient(180deg, #134d71 10%, #78a7c6 50%, #f7e4bf 100%);
 }
 
+.background-alt {
+  background: linear-gradient(180deg, $bg2-clr1 10%, $bg2-clr2 50%, $bg2-clr3 100%);
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -39,6 +48,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   margin-top: 25px;
   height: calc($font-header-size * 2);
@@ -127,6 +137,20 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.fade-up {
+  animation: fade-up 0.75s;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 750px) {
