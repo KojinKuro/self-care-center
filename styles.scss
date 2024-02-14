@@ -96,6 +96,8 @@ main {
   }
 
   button {
+    $button-width: 200px;
+    $button-height: 30px;
     width: 200px;
     height: 30px;
 
@@ -104,6 +106,14 @@ main {
     background-color: $dark-blue;
     color: $white;
     font-size: 1rem;
+
+    &:hover {
+      $size-multiplier: 1.05;
+      background-color: $light-blue;
+      width: calc($button-width * $size-multiplier);
+      height: calc($button-height * $size-multiplier);
+      font-size: calc(1rem * $size-multiplier);
+    }
   }
 }
 
@@ -117,4 +127,14 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+@media (max-width: 750px) {
+  #message-random {
+    width: 100%;
+  }
+
+  #message-form {
+    width: 100vw;
+  }
 }

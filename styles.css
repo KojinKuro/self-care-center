@@ -86,6 +86,12 @@ main {
   color: #ffffff;
   font-size: 1rem;
 }
+#message-form button:hover {
+  background-color: #78a7c6;
+  width: 210px;
+  height: 31.5px;
+  font-size: 1.05rem;
+}
 
 #message-random {
   width: 750px;
@@ -95,4 +101,13 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+@media (max-width: 750px) {
+  #message-random {
+    width: 100%;
+  }
+  #message-form {
+    width: 100vw;
+  }
 }/*# sourceMappingURL=styles.css.map */
