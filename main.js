@@ -1,19 +1,30 @@
-let html = document.querySelector('html');
-let messageBox = document.querySelector('#message-random');
-let messageInput = document.querySelector('button[type="submit"]');
-let affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
-let mantraRadio = document.querySelector('input#mantra[type="radio"]');
-let previousMessage = affirmationRadio;
+const html = document.querySelector('html');
+const messageBox = document.querySelector('#message-random');
+const messageInput = document.querySelector('button[type="submit"]');
+const affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
+const mantraRadio = document.querySelector('input#mantra[type="radio"]');
 
-let chime = new Audio('./sounds/bell.wav');
+const chime = new Audio('./sounds/bell.wav');
+
+let previousMessage = affirmationRadio;
+let previousTimer;
 
 messageInput.addEventListener('click', function(event) {
   event.preventDefault();
+  clearTimeout(previousTimer);
   chime.cloneNode().play();
-  let message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
-  setMessage(message);
+
   changeBackground();
+  loading();
+  previousTimer = setTimeout(() => {
+    const message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
+    setMessage(message);
+  }, 500 + getRandomIndex(1500));
 });
+
+function loading() {
+  messageBox.innerHTML = '<img src="./assets/loading.gif">';
+}
 
 function changeBackground() {
   if(previousMessage === affirmationRadio && affirmationRadio.checked) return;
