@@ -1,18 +1,17 @@
 let html = document.querySelector('html');
 let messageBox = document.querySelector('#message-random');
 let messageInput = document.querySelector('button[type="submit"]');
-let messageForm = document.querySelector('#message-form');
 let affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
 let mantraRadio = document.querySelector('input#mantra[type="radio"]');
 
 let chime = new Audio('./sounds/bell.wav');
 
-messageForm.addEventListener('change', changeBackground);
 messageInput.addEventListener('click', function(event) {
   event.preventDefault();
   chime.cloneNode().play();
   let message = (affirmationRadio.checked) ? randomAffirmation() : randomMantra();
   setMessage(message);
+  changeBackground();
 });
 
 function changeBackground() {
