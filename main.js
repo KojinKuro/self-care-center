@@ -3,6 +3,7 @@ let messageBox = document.querySelector('#message-random');
 let messageInput = document.querySelector('button[type="submit"]');
 let affirmationRadio = document.querySelector('input#affirmation[type="radio"]');
 let mantraRadio = document.querySelector('input#mantra[type="radio"]');
+let previousMessage = affirmationRadio;
 
 let chime = new Audio('./sounds/bell.wav');
 
@@ -15,8 +16,17 @@ messageInput.addEventListener('click', function(event) {
 });
 
 function changeBackground() {
-  if (affirmationRadio.checked) html.style.setProperty('--fade-style', 'fade-out');
-  else html.style.setProperty('--fade-style', 'fade-in');
+  if(previousMessage === affirmationRadio && affirmationRadio.checked) return;
+  if(previousMessage === mantraRadio && !affirmationRadio.checked) return;
+
+  if (affirmationRadio.checked) { 
+    html.style.setProperty('--fade-style', 'fade-out'); 
+    previousMessage = affirmationRadio;
+  }
+  else { 
+    html.style.setProperty('--fade-style', 'fade-in');
+    previousMessage = mantraRadio;
+  }
 }
 
 function setMessage(text) {
