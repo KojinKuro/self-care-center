@@ -6,7 +6,16 @@ I built an app that generates random affirmations and mantras. Affirmations are 
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
+
+#### Demo
 [Live Demo](https://kojinkuro.github.io/self-care-center/)
+
+#### Terminal Instruction
+```shell
+git clone git@github.com:KojinKuro/self-care-center.git
+cd self-care-center
+open index.html
+```
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
